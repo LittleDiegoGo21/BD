@@ -25,7 +25,7 @@ Salario decimal(10,2),
 constraint pk_tbEmpleado
 primary key (IdEmpleado),
 constraint chk_Salario
-check (Salario <= 400 and Salario <= 50000)
+check (Salario >= 400 and Salario <= 50000)
 )
 go
 
@@ -39,8 +39,7 @@ primary key (IdVenta),
 constraint fk_Cliente
 foreign key (IdCliente_fk)
 references tbCliente (IdCliente),
-constraint unico_nombre
-unique (IdCliente_fk)
-
+foreign key (IdEmpleado_fk)
+references tbEmpleado (IdEmpleado),
 )
 go
